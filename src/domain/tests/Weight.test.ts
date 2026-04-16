@@ -37,15 +37,3 @@ describe("Weight ValueObject", () => {
     expect(() => Weight.fromKg(-10)).toThrow("Weight cannot be negative");
   });
 });
-
-describe("UserConfig", () => {
-  it("should create a UserConfig object with consistent properties", () => {
-    const userConfig: UserConfig = {
-      preferredUnit: "kg",
-      // Add other properties if defined in UserConfig
-    };
-
-    expect(userConfig.preferredUnit).toBe("kg");
-    // Add more assertions for other properties of UserConfig if needed
-  });
-});

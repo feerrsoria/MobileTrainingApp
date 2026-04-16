@@ -1,7 +1,7 @@
 import { TrainingPlan } from "../entities/TrainingPlan";
 import { User } from "../entities/User";
-import { TrainingObjective } from "../types";
+import { TrainingObjective, UserConfig } from "../types";
 
 export interface RoutineGeneratorService {
-  generateRoutine(objective: TrainingObjective, user: User): TrainingPlan;
+  generateRoutine(userConfig: UserConfig, user: User): TrainingPlan;
 }

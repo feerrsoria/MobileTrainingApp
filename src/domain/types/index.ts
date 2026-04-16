@@ -1,7 +1,18 @@
+import { RPE_MAP } from "../constants/RpeMap";
+
+export type Rpe = keyof typeof RPE_MAP;
+
+export interface Set {
+  reps: number;
+  weight?: number;
+  rpe?: Rpe;
+  repsFailed?: number;
+}
+
 export enum TrainingObjective {
-  Hypertrophy = "Hypertrophy",
   Strength = "Strength",
-  WeightLoss = "WeightLoss",
+  Hypertrophy = "Hypertrophy",
+  Endurance = "Endurance",
 }
 
 export enum TrainingLevel {
@@ -11,27 +22,28 @@ export enum TrainingLevel {
 }
 
 export interface UserConfig {
-  // Define properties for user configuration
-  preferredUnit: "kg" | "lbs";
-  // ... other user preferences
+  id: string;
+  name: string;
+  trainingObjective: TrainingObjective;
+  trainingLevel: TrainingLevel;
+  // Add other user-related configuration properties as needed
 }
 
-export interface Set {
-  repetitions: number;
-  sets: number;
-  weight?: number; // Optional if RPE is used
-  rpe?: number; // Rate of Perceived Exertion
-  repsFailed?: number; // Repetitions in reserve
+export enum MovementPattern {
+  Squat = "Squat",
+  Hinge = "Hinge",
+  PushHorizontal = "Push Horizontal",
+  PushVertical = "Push Vertical",
+  PullHorizontal = "Pull Horizontal",
+  PullVertical = "Pull Vertical",
+  Lunge = "Lunge",
+  Carry = "Carry",
+  IsolationArm = "Isolation Arm",
+  IsolationCore = "Isolation Core",
 }
 
 export interface Exercise {
   name: string;
   sets: Set[];
-}
-
-export interface Routine {
-  objective: TrainingObjective;
-  level: TrainingLevel;
-  exercises: Exercise[];
-  // ... other routine properties
+  movementPattern?: MovementPattern;
 }

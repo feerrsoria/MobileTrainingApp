@@ -1,8 +1,8 @@
-import { Set, TrainingObjective } from "../types";
+import { Set, TrainingObjective, Exercise } from "../types";
 
 export interface Session {
   sessionNumber: number;
-  exercises: { name: string; sets: Set[]; }[];
+  exercises: Exercise[];
   isDeload?: boolean; // Indicates if this is a deload session
 }
 
